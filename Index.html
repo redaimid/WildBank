@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Экран загрузки -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h1 class="logo-text">Wild Bank</h1>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="loading-text">Загрузка системы...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Анимация перевода -->
+    <div id="transferAnimation" class="transfer-animation hidden">
+        <div class="animation-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Перевод выполнен!</h3>
+            <p class="transfer-amount">+1 500 WILD</p>
+            <div class="confetti"></div>
+        </div>
+    </div>
+
+    <!-- Основной экран -->
+    <div id="mainScreen" class="main-screen hidden">
+        <!-- Шапка -->
+        <header class="header">
+            <div class="user-info">
+                <img id="userAvatar" src="" alt="Аватар" class="avatar">
+                <div class="user-details">
+                    <span id="userName" class="user-name">Имя</span>
+                    <span class="user-status">Онлайн</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn notifications-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-indicator"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Уведомления -->
+        <div class="notifications-panel hidden">
+            <div class="panel-header">
+                <h3>Уведомления</h3>
+                <button class="icon-btn close-panel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="notifications-list">
+                <div class="empty-notifications">
+                    <i class="fas fa-bell-slash"></i>
+                    <p>Нет новых уведомлений</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <!-- Промо блок -->
+            <section class="promo-section">
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <div class="promo-badge">Акция</div>
+                        <h3>2500 WILD за друга</h3>
+                        <p>Пригласи друга и получи бонус</p>
+                    </div>
+                    <button class="close-promo">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Баланс -->
+            <section class="balance-section">
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <div class="balance-title">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wild Coin</span>
+                        </div>
+                        <div class="balance-status">Активен</div>
+                    </div>
+                    <div class="balance-display">
+                        <div class="balance-amount" id="wildBalance">0</div>
+                        <div class="account-number">№ 5373 4829 **** 1234</div>
+                    </div>
+                    <div class="balance-actions">
+                        <button class="btn primary" id="openAccount">
+                            <i class="fas fa-plus"></i>
+                            Оформить
+                        </button>
+                        <button class="btn qr-btn" id="showQR">
+                            <i class="fas fa-qrcode"></i>
+                            QR
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Перевод -->
+            <section class="transfer-section">
+                <div class="action-card" id="makeTransfer">
+                    <div class="action-content">
+                        <div class="action-icon transfer">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Перевести</h3>
+                            <p>Быстрый перевод друзьям</p>
+                        </div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Вклад -->
+            <section class="deposit-section">
+                <div class="action-card" id="openDeposit">
+                    <div class="action-content">
+                        <div class="action-icon deposit">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="action-text">
+                            <h3>Вклад</h3>
+                            <p>Выгодная ставка до 8%</p>
+                        </div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Навигация -->
+        <nav class="bottom-nav">
+            <a href="/bank.html" class="nav-item">
+                <i class="fas fa-university"></i>
+                <span>Банк</span>
+            </a>
+            <a href="/history.html" class="nav-item">
+                <i class="fas fa-history"></i>
+                <span>История</span>
+            </a>
+            <a href="/exchange.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Биржа</span>
+            </a>
+            <a href="/rating.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>Рейтинг</span>
+            </a>
+            <a href="/chat.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>Чат</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="devModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>В разработке</h3>
+                <button class="icon-btn close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <i class="fas fa-tools"></i>
+                <p>Функция находится в разработке</p>
+                <span>Скоро будет доступна</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аудио -->
+    <audio id="transferSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
